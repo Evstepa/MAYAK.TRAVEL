@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ввод URL страницы{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <h4>Введите адрес страницы с изображениями</h4>
+
+        {% block form %}
+            <form id="form"
+                class="form mt-5 mb-5"
+                method="post"
+                action="{{ url('images') }}">
+                <div class="input-group">
+                    <input id="url"
+                        name="url"
+                        class="btn border-secondary btn-url"
+                        type="text"
+                        required=""
+                        placeholder="[URL] https://">
+                    <input id="go"
+                        class="btn btn-outline-primary fw-bold"
+                        type="submit"
+                        value="Go">
+                </div>
+            </form>
+        {% endblock %}
+
+    </div>
+{% endblock %}

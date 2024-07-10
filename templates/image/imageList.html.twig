@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ввод URL страницы{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+
+        {% if check == false %}
+            <h4>Введённая строка не содержит URL</h4>            
+        {% endif %}
+        
+        {% if imageCount == 0 %}
+            <h4>Страница не содержит изображений</h4>            
+        {% else %}
+            <h4>Найденные изображения</h4>
+            <div class="flex tbl mb-5">
+                {% for image in images %}
+                    <div class="tbl__item">
+                        <img src="{{ image }}" class="img-thumbnail img"/>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <h4>На странице обнаружено изображений <b>{{ imageCount }}</b> на <b>{{ imageSize }}</b> Мб</h4>
+
+        <a class="btn btn-outline-primary fw-bold mb-5" href="{{ url('url') }}">Найти ещё</a>
+    </div>
+{% endblock %}
